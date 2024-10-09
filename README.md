@@ -1,6 +1,5 @@
 # Dragons
 
-# Dragons
 Olá! Obrigado pelo interesse em participar do nosso processo seletivo.
 
 Leia atentamente as instruções abaixo e não hesite em entrar em contato com a gente :).
