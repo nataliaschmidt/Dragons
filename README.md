@@ -1,6 +1,5 @@
 # Dragons
-
-Olá! Obrigado pelo interesse em participar do nosso processo seletivo.
+Ola! Obrigado pelo interesse em participar do nosso processo seletivo.
 
 Leia atentamente as instruções abaixo e não hesite em entrar em contato com a gente :).
 
@@ -14,14 +13,15 @@ Criar uma aplicação que contenha​:
 <b>Uma página de lista de dragões:</b>
 - Os nomes devem estar em ordem alfabética;
 - A partir da lista, deverá ser possível remover e alterar as informações dos dragões.
-- Uma página com os detalhes de um dragão específico:
+  
+<b>Uma página para cadastro de dragões</b>
+
+<b>Uma página com os detalhes de um dragão específico:</b>
   
 Os seguintes dados devem ser apresentados na página:
 - Data de criação;
 - Nome;
 - Tipo.
-
-<b>Uma página para cadastro de dragões</b>
 
 <b>Regras:</b>
 
