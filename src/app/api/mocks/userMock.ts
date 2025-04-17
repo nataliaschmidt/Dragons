@@ -1,6 +1,6 @@
 import { TUser } from '@/app/types/user';
 
 export const userMock: TUser = {
-  email: 'user@mydragons.com',
+  email: 'user@dragons.com',
   password: 'dragon$123',
 };

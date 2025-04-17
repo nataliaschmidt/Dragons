@@ -75,3 +75,9 @@
     font-size: 52px;
   }
 }
+
+.error {
+  color: var(--color-alert);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}

@@ -1,9 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/login.module.css';
 import { useForm } from 'react-hook-form';
 import Input from '../components/Input/Input';
+
+import { userMock } from '../api/mocks/userMock';
+import { login } from '../utils/auth';
+import { useRouter } from 'next/navigation';
 
 type TFormValues = {
   email: string;
@@ -12,9 +16,17 @@ type TFormValues = {
 
 export default function LoginPage() {
   const { register, handleSubmit } = useForm<TFormValues>();
+  const [errorMessage, setErrorMessage] = useState<string>('');
+  const router = useRouter();
 
   const onSubmit = (data: TFormValues) => {
-    console.log('Dados do formulário:', data);
+    const {email, password} = data
+    if (email === userMock.email && password === userMock.password) {
+      login({email});
+      router.push('/dragoes');
+    } else {
+      setErrorMessage('Usuário ou senha incorreta');
+    }
   };
 
   return (
@@ -40,7 +52,7 @@ export default function LoginPage() {
                 placeholder="Digite sua senha"
               />
             </div>
-
+            <p className={styles.error}>{errorMessage}</p>
             <button type="submit" className={styles.button}>
               Entrar
             </button>
