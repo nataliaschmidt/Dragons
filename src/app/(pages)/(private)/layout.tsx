@@ -1,5 +1,6 @@
 'use client';
 
+import Menu from '@/app/components/Menu';
 import PrivateRoute from '@/app/components/PrivateRoute';
 
 type TPrivateLayoutProps = {
@@ -7,5 +8,10 @@ type TPrivateLayoutProps = {
 };
 
 export default function PrivateLayout({ children }: TPrivateLayoutProps) {
-  return <PrivateRoute>{children}</PrivateRoute>;
+  return (
+    <PrivateRoute>
+      <Menu />
+      <main>{children}</main>
+    </PrivateRoute>
+  );
 }

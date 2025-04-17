@@ -5,6 +5,7 @@
   --color-dark: #212121;
   --color-light: #d1d7e0;
   --color-alert: #f72e2e;
+  --color-primary: #8f5ec0;
 }
 
 * {
@@ -17,9 +18,13 @@ body,
 html {
   background-color: var(--color-dark);
   color: var(--color-light);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   height: 100%;
   letter-spacing: 1px;
+}
+
+main {
+  padding: 24px;
 }
 
 header {
@@ -30,4 +35,29 @@ header {
   font-size: 24px;
   justify-content: center;
   text-align: center;
+}
+
+.list-container {
+  border: 2px solid var(--color-light);
+  box-shadow:
+    15px 15px 20px 2px rgb(0 0 0 / 50%),
+    0 0 10px 2px rgb(255 255 255 / 50%);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 16px;
+  padding: 24px;
+}
+
+.simple-container {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+@media (width >= 768px) {
+  .list-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

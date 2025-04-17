@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { login } from '@/app/utils/auth';
 import { userMock } from '@/app/api/mocks/userMock';
-import Input from '@/app/components/Input/Input';
+import Input from '@/app/components/Input';
 
 type TFormValues = {
   email: string;
@@ -23,7 +23,7 @@ export default function LoginPage() {
     const { email, password } = data;
     if (email === userMock.email && password === userMock.password) {
       login({ email });
-      router.push('/dragoes');
+      router.replace('/dragoes');
     } else {
       setErrorMessage('Usuário ou senha incorreta');
     }

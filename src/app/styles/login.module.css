@@ -4,7 +4,10 @@
   flex-direction: column;
   gap: 20px;
   height: 100%;
-  padding: 20px;
+}
+
+.header {
+  margin-top: 24px;
 }
 
 .container {
@@ -73,6 +76,8 @@
 
   .header {
     font-size: 52px;
+    margin-top: 0;
+    padding: 24px;
   }
 }
 
