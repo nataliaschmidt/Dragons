@@ -1,11 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Input from '../Input';
 import Button from '../Button';
 import styles from './DragonForm.module.css';
-import { useCreateDragon } from '@/app/api/hooksServices/useDragonsServices';
+import {
+  useCreateDragon,
+  useGetDragonById,
+  useUpdateDragon,
+} from '@/app/api/hooksServices/useDragonsServices';
 import { useRouter } from 'next/navigation';
 import Spinner from '../Spinner';
 
@@ -14,11 +18,12 @@ type TFormValues = {
   type: string;
 };
 
-export default function DragonForm() {
+export default function DragonForm({ dragonId }: { dragonId?: string }) {
   const {
     register,
     handleSubmit,
     formState: { isValid },
+    reset,
   } = useForm<TFormValues>({
     mode: 'onChange',
     defaultValues: { name: '', type: '' },
@@ -28,16 +33,49 @@ export default function DragonForm() {
   const { mutate: createDragon, isPending: isLoadingCreateDragon } =
     useCreateDragon();
 
+  const { data: dragon, isLoading: isLoadingGetDragonId } = useGetDragonById(
+    dragonId as string
+  );
+
+  const { mutate: updateDragon, isPending: isLoadingUpdateDragon } =
+    useUpdateDragon();
+
+const isLoading = isLoadingCreateDragon || isLoadingUpdateDragon
+
   const onSubmit = (data: TFormValues) => {
-    createDragon(data, {
-      onSuccess: () => {
-        router.push('/dragoes');
-      },
-      onError: (error) => {
-        console.error('Erro ao criar dragão:', error);
-      },
-    });
+    dragonId
+      ? updateDragon(
+          {
+            id: dragonId,
+            data,
+          },
+          {
+            onSuccess: () => {
+              router.push('/dragoes');
+            },
+            onError: (error) => {
+              console.error('Erro ao atualizar dragão:', error);
+            },
+          }
+        )
+      : createDragon(data, {
+          onSuccess: () => {
+            router.push('/dragoes');
+          },
+          onError: (error) => {
+            console.error('Erro ao criar dragão:', error);
+          },
+        });
   };
+
+  useEffect(() => {
+    if (dragonId && dragon) {
+      reset({
+        name: dragon.name,
+        type: dragon.type,
+      });
+    }
+  }, [dragonId, dragon]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -60,7 +98,7 @@ export default function DragonForm() {
       </label>
 
       <Button type="submit" disabled={!isValid}>
-        {isLoadingCreateDragon ? <Spinner size={24} /> : 'Salvar'}
+        {isLoading ? <Spinner size={24} /> : 'Salvar'}
       </Button>
     </form>
   );

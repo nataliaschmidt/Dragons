@@ -39,4 +39,14 @@ export const DragonService = {
     if (!res.ok) throw new Error('Erro ao criar dragão');
     return res.json();
   },
+
+  update: async (id: string, data: TBodyDragon) => {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error('Erro ao atualizar dragão');
+    return res.json();
+  },
 };

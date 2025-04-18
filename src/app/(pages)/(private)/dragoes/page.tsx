@@ -6,7 +6,7 @@ import Modal from '@/app/components/Modal';
 import Spinner from '@/app/components/Spinner';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import { FaEye } from 'react-icons/fa';
+import { FaEdit, FaEye } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
 export default function DragonsListPage() {
@@ -42,6 +42,14 @@ export default function DragonsListPage() {
                   cursor={'pointer'}
                   aria-label="Clique para visualizar detalhes do dragão"
                   onClick={() => router.push(`/dragoes/${dragon.id}`)}
+                />
+                <FaEdit
+                  size={20}
+                  cursor={'pointer'}
+                  aria-label="Clique para editar seu dragão"
+                  onClick={() =>
+                    router.push(`/dragoes/editardragao/${dragon.id}`)
+                  }
                 />
                 <MdDelete
                   size={20}
