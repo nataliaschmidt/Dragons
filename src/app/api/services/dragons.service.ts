@@ -30,27 +30,33 @@ export const DragonService = {
     }
   },
 
-  create: async (data: TBodyDragon) => {
+  create: async (data: TBodyDragon): Promise<IDragon> => {
     const res = await fetch(BASE_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error('Erro ao criar dragão');
+    if (!res.ok)
+      throw new Error(
+        'Não foi possível criar seu dragão, por favor, tente mais tarde!'
+      );
     return res.json();
   },
 
-  update: async (id: string, data: TBodyDragon) => {
+  update: async (id: string, data: TBodyDragon): Promise<IDragon> => {
     const res = await fetch(`${BASE_URL}/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error('Erro ao atualizar dragão');
+    if (!res.ok)
+      throw new Error(
+        'Não foi possível atualizar seu dragão, por favor, tente mais tarde!'
+      );
     return res.json();
   },
 
-  delete: async (id: string) => {
+  delete: async (id: string): Promise<IDragon> => {
     const res = await fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE',
     });

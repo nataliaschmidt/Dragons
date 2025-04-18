@@ -14,3 +14,13 @@
   max-width: 500px;
   padding: 36px;
 }
+
+.label {
+  width: 250px;
+}
+
+@media (width >= 798px) {
+  .label {
+    width: 350px;
+  }
+}

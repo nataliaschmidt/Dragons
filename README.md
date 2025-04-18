@@ -1,64 +1,46 @@
-# Dragons
+# 🐉 Dragons
 
-Ola! Obrigado pelo interesse em participar do nosso processo seletivo.
+Este projeto é uma aplicação web para gerenciamento de dragões. Ele permite realizar o login, visualizar a lista de dragões, cadastrar novos, editar e remover dragões existentes, além de visualizar os detalhes de cada um.
 
-Leia atentamente as instruções abaixo e não hesite em entrar em contato com a gente :).
+## ⚙️ Funcionalidades
 
-### Objetivo
+- **Login**
+- **Listagem de dragões em ordem alfabética**
+- **Criação de novos dragões**
+- **Edição e remoção de dragões**
+- **Visualização de detalhes de um dragão**
 
-Criar uma aplicação que contenha​:
-
-<b>Página de login:</b>
-
-- Única página disponível se não estiver logado;
-- Criar um usuário básico para acesso.
-
-<b>Uma página de lista de dragões:</b>
-
-- Os nomes devem estar em ordem alfabética;
-- A partir da lista, deverá ser possível remover e alterar as informações dos dragões.
-
-<b>Uma página para cadastro de dragões</b>
-
-<b>Uma página com os detalhes de um dragão específico:</b>
-
-Os seguintes dados devem ser apresentados na página:
-
-- Data de criação;
-- Nome;
-- Tipo.
-
-<b>Regras:</b>
-
-- Layout responsivo;
-- Utilizar Stencil, React, Angular 6+ ou Web Components;
-- Usar um sistema de controle de versão para entregar o teste (Github, Bitbucket, ...).
-
-<b>O que será avaliado:</b>
-
-- Organização do código;
-- Componentização das páginas;
-- Interface organizada e amigável;
-- Uso adequado do css/sass/less. NÃO é permitido usar bibliotecas de estilos como: bootstrap, material design, etc.
-
-API:
-http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon
+## 👤 Usuário para acesso
 
 ```
-GET .../api/v1/dragon
-lista de dragões
-
-GET .../api/v1/dragon/:id
-detalhes de um draão
-
-POST .../api/v1/dragon
-criação de um dragão
-
-PUT .../api/v1/dragon/:id
-edição de um dragão
-
-DELETE .../api/v1/dragon/:id
-deleção de um dragão
+Email: user@dragons.com  
+Senha: dragon$123
 ```
 
-Bom teste!
+## 🛣️ Rotas da aplicação
+
+| Rota                         | Descrição                       |
+|------------------------------|---------------------------------|
+| `/`                          | Login                           |
+| `/dragoes`                   | Listagem de dragões             |
+| `/dragoes/criardragao`       | Criação de um novo dragão       |
+| `/dragoes/editardragao/:id`  | Edição de um dragão existente   |
+| `/dragoes/:id`               | Detalhamento de um dragão       |
+
+## 🔧 Como rodar o projeto localmente
+
+```bash
+# Clone o repositório
+git clone git@github.com:nataliaschmidt/Dragons.git
+
+# Acesse a pasta do projeto
+cd Dragons
+
+# Instale as dependências
+npm install
+
+# Inicie a aplicação
+npm run dev
+```
+
+⚠️ A aplicação estará disponível em: [http://localhost:3000](http://localhost:3000)
