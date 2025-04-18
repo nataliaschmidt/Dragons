@@ -12,6 +12,8 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaEdit, FaEye } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
+import { SiRedragon } from 'react-icons/si';
+import styles from './DragonListPage.module.css';
 
 export default function DragonsListPage() {
   const { data: allDragonsList, isLoading: isLoadingList } =
@@ -28,7 +30,10 @@ export default function DragonsListPage() {
 
   return (
     <>
-      <header>Lista de dragões</header>
+      <header>
+        <SiRedragon size={44} />
+        <h1>Lista de dragões</h1>
+      </header>
       <p className="introduction">
         Aqui você encontra todos os dragões cadastrados!
       </p>
@@ -37,17 +42,19 @@ export default function DragonsListPage() {
         ou até removê-los se necessário.
       </p>
       <p className="introduction">
-        Use os botões ao lado de cada dragão para realizar essas ações com
-        facilidade.
+        Use os botões abaixo de cada dragão para realizar essas ações.
       </p>
       {isLoadingList ? (
         <Spinner size={56} />
       ) : allDragonsList && allDragonsList.length > 0 ? (
-        <div className="list-container">
+        <div className={styles.container}>
           {allDragonsList.map((dragon: IDragon) => (
             <DragonCard key={dragon.id}>
-              <h3>{dragon.name}</h3>
-              <div className="simple-container">
+              <h3 className={styles.name} title={dragon.name}>
+                {dragon.name}
+              </h3>
+
+              <div className={styles.icons}>
                 <FaEye
                   size={20}
                   cursor={'pointer'}
@@ -73,8 +80,8 @@ export default function DragonsListPage() {
           ))}
         </div>
       ) : (
-        <div className="simple-container">
-          <p>Não há dragões cadastrados.</p>
+        <div className="message-alert">
+          <p>Não foi possível listar os dragões.</p>
         </div>
       )}
       {openModal && (

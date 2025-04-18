@@ -7,6 +7,7 @@ import { useParams } from 'next/navigation';
 import React from 'react';
 import styles from './DragonDetailPage.module.css';
 import Image from 'next/image';
+import { SiRedragon } from 'react-icons/si';
 
 export default function DragonDetailPage() {
   const { id } = useParams();
@@ -15,7 +16,10 @@ export default function DragonDetailPage() {
 
   return (
     <>
-      <header>Detalhes do dragão</header>
+      <header>
+        <SiRedragon size={44} />
+        <h1>Detalhes do dragão</h1>
+      </header>
       <p className="introduction">Conheça melhor o seu dragão!</p>
       <p className="introduction">
         Abaixo estão os registros oficiais da criatura — nome, tipo e a data em
@@ -36,15 +40,15 @@ export default function DragonDetailPage() {
             </p>
           </DragonCard>
         ) : (
-          <p>Não há detalhes disponíveis</p>
+          <p className="message-alert">Não há detalhes disponíveis</p>
         )}
       </div>
       <Image
         className={styles.image}
-        alt="Imagem de um dragão no topo de uma montanha, ele está cuspindo fogo"
-        src="/images/dragon_create.png"
-        width={350}
-        height={350}
+        alt="Imagem de um dragão"
+        src="/images/dragon_detail_page.svg"
+        width={250}
+        height={250}
       />
     </>
   );

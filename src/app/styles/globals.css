@@ -45,30 +45,12 @@ header {
   text-align: center;
 }
 
-.list-container {
-  box-shadow:
-    15px 15px 20px 2px rgb(0 0 0 / 50%),
-    0 0 10px 2px rgb(255 255 255 / 50%);
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 64px auto 0;
-  padding: 24px;
-}
-
-.simple-container {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-}
-
 .alert {
   color: var(--color-alert);
 }
 
-@media (width >= 768px) {
-  .list-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.message-alert {
+  color: var(--color-alert);
+  margin-top: 24px;
+  text-align: center;
 }
