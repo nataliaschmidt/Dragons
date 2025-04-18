@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaEdit, FaEye } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
+import { SiRedragon } from 'react-icons/si';
 
 export default function DragonsListPage() {
   const { data: allDragonsList, isLoading: isLoadingList } =
@@ -28,7 +29,10 @@ export default function DragonsListPage() {
 
   return (
     <>
-      <header>Lista de dragões</header>
+      <header>
+        <SiRedragon size={44} />
+        <h1>Lista de dragões</h1>
+      </header>
       <p className="introduction">
         Aqui você encontra todos os dragões cadastrados!
       </p>
@@ -37,8 +41,7 @@ export default function DragonsListPage() {
         ou até removê-los se necessário.
       </p>
       <p className="introduction">
-        Use os botões ao lado de cada dragão para realizar essas ações com
-        facilidade.
+        Use os botões abaixo de cada dragão para realizar essas ações.
       </p>
       {isLoadingList ? (
         <Spinner size={56} />
@@ -46,7 +49,9 @@ export default function DragonsListPage() {
         <div className="list-container">
           {allDragonsList.map((dragon: IDragon) => (
             <DragonCard key={dragon.id}>
-              <h3>{dragon.name}</h3>
+              <div>
+                <h3>{dragon.name}</h3>
+              </div>
               <div className="simple-container">
                 <FaEye
                   size={20}

@@ -4,11 +4,15 @@ import React from 'react';
 import styles from './CreateDragonsPage.module.css';
 
 import DragonForm from '@/app/components/DragonForm';
+import { SiRedragon } from 'react-icons/si';
 
 export default function CreateDragonsPage() {
   return (
     <>
-      <header>Crie seu dragão</header>
+      <header>
+        <SiRedragon size={44} />
+        <h1>Crie seu dragão</h1>
+      </header>
       <p className="introduction">
         Preencha as informações abaixo para registrar um novo dragão.
       </p>
