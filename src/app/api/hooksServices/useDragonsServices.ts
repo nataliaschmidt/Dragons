@@ -32,3 +32,14 @@ export const useCreateDragon = () => {
     },
   });
 };
+
+export const useUpdateDragon = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: TBodyDragon }) =>
+      DragonService.update(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.allDragons] });
+    },
+  });
+};
