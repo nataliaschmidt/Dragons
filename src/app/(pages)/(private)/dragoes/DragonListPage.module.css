@@ -1,0 +1,42 @@
+.container {
+  box-shadow:
+    15px 15px 20px 2px rgb(0 0 0 / 50%),
+    0 0 10px 2px rgb(255 255 255 / 50%);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin: 64px auto 0;
+  padding: 24px;
+}
+
+.name {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80px;
+}
+
+.icons {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+@media (width >= 768px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .name {
+    width: 150px;
+  }
+}
+
+@media (width >= 1024px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
