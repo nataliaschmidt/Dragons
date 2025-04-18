@@ -1,9 +1,13 @@
 'use client';
 
-import { UseGetDragons } from '@/app/api/hooksServices/useDragonsServices';
+import {
+  useDeleteDragon,
+  UseGetDragons,
+} from '@/app/api/hooksServices/useDragonsServices';
 import DragonCard from '@/app/components/DragonCard';
 import Modal from '@/app/components/Modal';
 import Spinner from '@/app/components/Spinner';
+import { IDragon } from '@/app/types/dragons';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaEdit, FaEye } from 'react-icons/fa';
@@ -13,7 +17,14 @@ export default function DragonsListPage() {
   const { data: allDragonsList, isLoading: isLoadingList } =
     UseGetDragons(true);
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [selectedDragonId, setSelectedDragonId] = useState<string | null>(null);
   const router = useRouter();
+  const { mutate: deleteDragon } = useDeleteDragon();
+
+  const handleDelete = (id: string) => {
+    setOpenModal(true);
+    setSelectedDragonId(id);
+  };
 
   return (
     <>
@@ -33,7 +44,7 @@ export default function DragonsListPage() {
         <Spinner size={56} />
       ) : allDragonsList && allDragonsList.length > 0 ? (
         <div className="list-container">
-          {allDragonsList.map((dragon) => (
+          {allDragonsList.map((dragon: IDragon) => (
             <DragonCard key={dragon.id}>
               <h3>{dragon.name}</h3>
               <div className="simple-container">
@@ -55,6 +66,7 @@ export default function DragonsListPage() {
                   size={20}
                   cursor={'pointer'}
                   aria-label="Clique para deletar o dragão"
+                  onClick={() => handleDelete(dragon.id)}
                 />
               </div>
             </DragonCard>
@@ -65,7 +77,22 @@ export default function DragonsListPage() {
           <p>Não há dragões cadastrados.</p>
         </div>
       )}
-      {openModal && <Modal text="lalallalaal" setOpen={setOpenModal} />}
+      {openModal && (
+        <Modal
+          text="Você realmente deseja deletar este dragão?"
+          onConfirm={() => {
+            if (selectedDragonId) {
+              deleteDragon({ id: selectedDragonId });
+              setSelectedDragonId(null);
+            }
+            setOpenModal(false);
+          }}
+          onCancel={() => {
+            setOpenModal(false);
+            setSelectedDragonId(null);
+          }}
+        />
+      )}
     </>
   );
 }

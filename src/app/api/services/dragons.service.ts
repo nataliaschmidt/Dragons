@@ -49,4 +49,12 @@ export const DragonService = {
     if (!res.ok) throw new Error('Erro ao atualizar dragão');
     return res.json();
   },
+
+  delete: async (id: string) => {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE',
+    });
+    if (!res.ok) throw new Error('Erro ao deletar dragão');
+    return res.json();
+  },
 };
