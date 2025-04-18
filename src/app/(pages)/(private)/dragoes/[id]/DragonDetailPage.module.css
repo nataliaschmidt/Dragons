@@ -1,0 +1,26 @@
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.image {
+  bottom: -36px;
+  left: -44px;
+  position: fixed;
+}
+
+@media (width >= 768px) {
+  .image {
+    height: 600px;
+    width: 600px;
+  }
+}
+
+@media (width >= 1024px) {
+  .image {
+    height: 800px;
+    width: 800px;
+  }
+}

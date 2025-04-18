@@ -1,26 +1,13 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
-import styles from './input.module.css';
+import styles from './Input.module.css';
 
-type TInputProps = {
+interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'name'> {
   field: UseFormRegisterReturn;
-  type?: string;
-  disabled?: boolean;
-  placeholder?: string;
-};
+}
 
-export default function Input({
-  field,
-  type = 'text',
-  disabled = false,
-  placeholder = '',
-}: TInputProps) {
+export default function Input({ field, className = '', ...props }: InputProps) {
   return (
-    <input
-      {...field}
-      type={type}
-      disabled={disabled}
-      placeholder={placeholder}
-      className={styles.input}
-    />
+    <input {...field} {...props} className={`${styles.input} ${className}`} />
   );
 }

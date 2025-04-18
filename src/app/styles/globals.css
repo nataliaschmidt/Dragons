@@ -34,18 +34,25 @@ header {
   flex-direction: column;
   font-size: 24px;
   justify-content: center;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.introduction {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  padding: 2px;
   text-align: center;
 }
 
 .list-container {
-  border: 2px solid var(--color-light);
   box-shadow:
     15px 15px 20px 2px rgb(0 0 0 / 50%),
     0 0 10px 2px rgb(255 255 255 / 50%);
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 16px;
+  margin: 64px auto 0;
   padding: 24px;
 }
 
@@ -54,6 +61,10 @@ header {
   display: flex;
   gap: 8px;
   justify-content: center;
+}
+
+.alert {
+  color: var(--color-alert);
 }
 
 @media (width >= 768px) {

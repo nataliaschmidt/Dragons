@@ -5,9 +5,10 @@ import DragonCard from '@/app/components/DragonCard';
 import Spinner from '@/app/components/Spinner';
 import { useParams } from 'next/navigation';
 import React from 'react';
-import styles from './details.module.css';
+import styles from './DragonDetailPage.module.css';
+import Image from 'next/image';
 
-export default function DragonDetail() {
+export default function DragonDetailPage() {
   const { id } = useParams();
 
   const { data: dragon, isLoading } = useGetDragonById(id as string);
@@ -15,6 +16,11 @@ export default function DragonDetail() {
   return (
     <>
       <header>Detalhes do dragão</header>
+      <p className="introduction">Conheça melhor o seu dragão!</p>
+      <p className="introduction">
+        Abaixo estão os registros oficiais da criatura — nome, tipo e a data em
+        que surgiu no nosso mundo.
+      </p>
       <div className={styles.container}>
         {isLoading ? (
           <Spinner size={56} />
@@ -33,6 +39,13 @@ export default function DragonDetail() {
           <p>Não há detalhes disponíveis</p>
         )}
       </div>
+      <Image
+        className={styles.image}
+        alt="Imagem de um dragão no topo de uma montanha, ele está cuspindo fogo"
+        src="/images/dragon_create.png"
+        width={350}
+        height={350}
+      />
     </>
   );
 }

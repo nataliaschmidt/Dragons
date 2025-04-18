@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import styles from './menu.module.css';
+import styles from './Menu.module.css';
 import { usePathname, useRouter } from 'next/navigation';
 import { IoIosLogOut } from 'react-icons/io';
 import { logout } from '@/app/utils/auth';

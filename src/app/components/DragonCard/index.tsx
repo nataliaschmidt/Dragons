@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './dragonCard.module.css';
+import styles from './DragonCard.module.css';
 
 type TDragonCardProps = {
   children: React.ReactNode;
