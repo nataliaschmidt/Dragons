@@ -1,16 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { DragonService } from '../services/dragons.service';
-import { IDragon } from '@/app/types/dragons';
+import { IDragon, TBodyDragon } from '@/app/types/dragons';
 
 const QUERY_KEYS = {
   allDragons: 'dragons',
   dragonById: 'dragonById',
 };
 
-export const UseGetDragons = () => {
+export const UseGetDragons = (sortByName = false) => {
   return useQuery<IDragon[], Error>({
-    queryKey: [QUERY_KEYS.allDragons],
-    queryFn: DragonService.getAll,
+    queryKey: [QUERY_KEYS.allDragons, sortByName],
+    queryFn: () => DragonService.getAll(sortByName),
   });
 };
 
@@ -19,5 +19,16 @@ export const useGetDragonById = (id: string) => {
     queryKey: [QUERY_KEYS.dragonById, id],
     queryFn: () => DragonService.getById(id),
     enabled: !!id,
+  });
+};
+
+export const useCreateDragon = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (body: TBodyDragon) => DragonService.create(body),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.allDragons] });
+    },
   });
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import styles from '../../styles/login.module.css';
+import styles from '../../styles/LoginPage.module.css';
 import { useForm } from 'react-hook-form';
 
 import { useRouter } from 'next/navigation';

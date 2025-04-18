@@ -1,5 +1,5 @@
 import React, { SetStateAction } from 'react';
-import styles from './modal.module.css';
+import styles from './Modal.module.css';
 
 type TModalProps = {
   text: string;

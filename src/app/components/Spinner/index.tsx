@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './spinner.module.css';
+import styles from './Spinner.module.css';
 import { PiSpinnerGap } from 'react-icons/pi';
 
 type TSpinnerProps = {

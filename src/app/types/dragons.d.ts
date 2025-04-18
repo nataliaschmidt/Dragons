@@ -5,3 +5,5 @@ export interface IDragon {
   type: string;
   histories: string[];
 }
+
+export type TBodyDragon = Pick<IDragon, 'name' | 'type'>;
