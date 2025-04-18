@@ -40,7 +40,7 @@ export default function DragonForm({ dragonId }: { dragonId?: string }) {
   const { mutate: updateDragon, isPending: isLoadingUpdateDragon } =
     useUpdateDragon();
 
-const isLoading = isLoadingCreateDragon || isLoadingUpdateDragon
+  const isLoading = isLoadingCreateDragon || isLoadingUpdateDragon;
 
   const onSubmit = (data: TFormValues) => {
     dragonId

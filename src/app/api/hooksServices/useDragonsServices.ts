@@ -43,3 +43,13 @@ export const useUpdateDragon = () => {
     },
   });
 };
+
+export const useDeleteDragon = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id }: { id: string }) => DragonService.delete(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.allDragons] });
+    },
+  });
+};
