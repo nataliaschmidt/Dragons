@@ -40,15 +40,15 @@ export default function DragonDetailPage() {
             </p>
           </DragonCard>
         ) : (
-          <p>Não há detalhes disponíveis</p>
+          <p className="message-alert">Não há detalhes disponíveis</p>
         )}
       </div>
       <Image
         className={styles.image}
-        alt="Imagem de um dragão no topo de uma montanha, ele está cuspindo fogo"
-        src="/images/dragon_create.png"
-        width={350}
-        height={350}
+        alt="Imagem de um dragão"
+        src="/images/dragon_detail_page.svg"
+        width={250}
+        height={250}
       />
     </>
   );

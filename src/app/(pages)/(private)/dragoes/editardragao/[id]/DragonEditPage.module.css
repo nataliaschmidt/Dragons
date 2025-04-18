@@ -1,0 +1,20 @@
+.image {
+  bottom: 0;
+  display: none;
+  position: fixed;
+  right: -75px;
+}
+
+@media (width >= 768px) {
+  .image {
+    display: block;
+    right: -150px;
+  }
+}
+
+@media (width >= 1024px) {
+  .image {
+    height: 800px;
+    width: 800px;
+  }
+}

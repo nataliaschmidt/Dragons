@@ -4,6 +4,8 @@ import DragonForm from '@/app/components/DragonForm';
 import { useParams } from 'next/navigation';
 import React from 'react';
 import { SiRedragon } from 'react-icons/si';
+import styles from './DragonEditPage.module.css';
+import Image from 'next/image';
 
 export default function EditDragon() {
   const { id } = useParams();
@@ -22,6 +24,13 @@ export default function EditDragon() {
       </p>
 
       <DragonForm dragonId={id as string} />
+      <Image
+        className={styles.image}
+        alt="Imagem de um dragão"
+        src="/images/dragon_edit_page.svg"
+        width={600}
+        height={600}
+      />
     </>
   );
 }

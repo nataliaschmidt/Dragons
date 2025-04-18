@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import styles from './CreateDragonsPage.module.css';
+import styles from './DragonCreatePage.module.css';
 
 import DragonForm from '@/app/components/DragonForm';
 import { SiRedragon } from 'react-icons/si';
@@ -21,6 +21,13 @@ export default function CreateDragonsPage() {
       </p>
 
       <DragonForm />
+      <Image
+        className={styles.image}
+        alt="Imagem de um dragão"
+        src="/images/dragon_create_page.svg"
+        width={500}
+        height={500}
+      />
     </>
   );
 }
