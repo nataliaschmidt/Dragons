@@ -41,7 +41,7 @@ export default function DragonForm({ dragon }: { dragon?: IDragon }) {
 
   const isLoading = isLoadingCreateDragon || isLoadingUpdateDragon;
 
-  function onSubmit(data: TFormValues) {
+  const onSubmit = (data: TFormValues) => {
     const handleSuccess = () => {
       router.push('/dragoes');
     };
@@ -67,7 +67,7 @@ export default function DragonForm({ dragon }: { dragon?: IDragon }) {
         onError: handleError,
       });
     }
-  }
+  };
 
   useEffect(() => {
     if (dragon) {

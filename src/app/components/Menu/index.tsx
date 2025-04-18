@@ -4,6 +4,7 @@ import styles from './Menu.module.css';
 import { usePathname, useRouter } from 'next/navigation';
 import { IoIosLogOut } from 'react-icons/io';
 import { logout } from '@/app/utils/auth';
+import { IoArrowBack } from 'react-icons/io5';
 
 export default function Menu() {
   const router = useRouter();
@@ -31,13 +32,22 @@ export default function Menu() {
           Criar dragão
         </Link>
       </nav>
-      <button
-        onClick={handleLogout}
-        aria-label="Realizar logout"
-        className={`${styles.button} ${styles.link}`}
-      >
-        <IoIosLogOut size={20} />
-      </button>
+      <div className={styles.icons}>
+        <button
+          onClick={() => router.back()}
+          aria-label="Retornar a página"
+          className={`${styles.button} ${styles.link}`}
+        >
+          <IoArrowBack size={20} />
+        </button>
+        <button
+          onClick={handleLogout}
+          aria-label="Realizar logout"
+          className={`${styles.button} ${styles.link}`}
+        >
+          <IoIosLogOut size={20} />
+        </button>
+      </div>
     </div>
   );
 }

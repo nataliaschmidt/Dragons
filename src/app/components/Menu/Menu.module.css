@@ -36,3 +36,8 @@
   color: inherit;
   cursor: pointer;
 }
+
+.icons {
+  display: flex;
+  gap: 24px;
+}

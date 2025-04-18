@@ -13,19 +13,19 @@ Este projeto é uma aplicação web para gerenciamento de dragões. Ele permite 
 ## 👤 Usuário para acesso
 
 ```
-Email: user@dragons.com  
+Email: user@dragons.com
 Senha: dragon$123
 ```
 
 ## 🛣️ Rotas da aplicação
 
-| Rota                         | Descrição                       |
-|------------------------------|---------------------------------|
-| `/`                          | Login                           |
-| `/dragoes`                   | Listagem de dragões             |
-| `/dragoes/criardragao`       | Criação de um novo dragão       |
-| `/dragoes/editardragao/:id`  | Edição de um dragão existente   |
-| `/dragoes/:id`               | Detalhamento de um dragão       |
+| Rota                        | Descrição                     |
+| --------------------------- | ----------------------------- |
+| `/`                         | Login                         |
+| `/dragoes`                  | Listagem de dragões           |
+| `/dragoes/criardragao`      | Criação de um novo dragão     |
+| `/dragoes/editardragao/:id` | Edição de um dragão existente |
+| `/dragoes/:id`              | Detalhamento de um dragão     |
 
 ## 🔧 Como rodar o projeto localmente
 
@@ -44,3 +44,5 @@ npm run dev
 ```
 
 ⚠️ A aplicação estará disponível em: [http://localhost:3000](http://localhost:3000)
+
+📝 **Observação:** Este projeto foi desenvolvido utilizando **Node.js v20.19.0**. Recomenda-se utilizar a mesma versão para evitar possíveis incompatibilidades.
